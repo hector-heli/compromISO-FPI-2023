@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-/* import { SiShopware } from 'react-icons/si'; */
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
-import logoSena from '../../public/logoSena.png';
+import logoSena from '../data/logo-sena.png';
+import logotipo from '../data/logotipo-sena.png';
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
@@ -24,19 +24,18 @@ const Sidebar = () => {
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
       {activeMenu && (
         <>
+          <div className="flex w-max justify-center">
+            <img className="pl-2 h-16" src={logoSena} alt="logo de SENA" />
+            <img className="h-16" src={logotipo} alt="logotipo de SENA" />
+          </div>
           <div className="flex justify-between items-center">
             <Link to="/" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-              <img src={logoSena} alt="logo" />
-              <span>CompromISO FPI CMM</span>
+              <span className="text-center">CompromISO FPI <br /> Centro Metalmecánico</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => {
-                  setActiveMenu(!activeMenu);
-                  // eslint-disable-next-line no-console
-                  console.log(activeMenu);
-                }}
+                onClick={() => { setActiveMenu(!activeMenu); }}
                 style={{ color: currentColor }}
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
