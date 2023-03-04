@@ -21,7 +21,7 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
+// import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -393,23 +393,23 @@ export const LinePrimaryYAxis = {
 
 export const customersGrid = [
   { type: 'checkbox', width: '50' },
-  { headerText: 'Name',
+  { headerText: 'Nombre',
     width: '150',
     template: customerGridImage,
     textAlign: 'Center' },
   { field: 'ProjectName',
-    headerText: 'Project Name',
+    headerText: 'Proyecto',
     width: '150',
     textAlign: 'Center' },
   { field: 'Status',
-    headerText: 'Status',
+    headerText: 'Estado',
     width: '130',
     format: 'yMd',
     textAlign: 'Center',
     template: customerGridStatus },
   {
     field: 'Weeks',
-    headerText: 'Weeks',
+    headerText: 'Semanas',
     width: '100',
     format: 'C2',
     textAlign: 'Center' },
@@ -471,34 +471,54 @@ export const employeesGrid = [
 
 export const links = [
   {
-    title: 'Dashboard',
+    title: 'Alistamiento',
     links: [
       {
-        name: 'ecommerce',
+        name: 'programas',
+        icon: <FiShoppingBag />,
+      },
+      {
+        name: 'proyectos formativos',
+        icon: <FiShoppingBag />,
+      },
+      {
+        name: 'módulos y planeadores',
+        icon: <FiShoppingBag />,
+      },
+      {
+        name: 'planes de sesión',
+        icon: <FiShoppingBag />,
+      },
+      {
+        name: 'guias de aprendizaje',
+        icon: <FiShoppingBag />,
+      },
+      {
+        name: 'portafolios',
         icon: <FiShoppingBag />,
       },
     ],
   },
 
   {
-    title: 'Pages',
+    title: 'Ejecución',
     links: [
       {
-        name: 'orders',
+        name: 'sesión de formación',
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: 'employees',
+        name: 'fichas',
         icon: <IoMdContacts />,
       },
       {
-        name: 'customers',
+        name: 'reportes a coordinación',
         icon: <RiContactsLine />,
       },
     ],
   },
   {
-    title: 'Apps',
+    title: 'Evaluación',
     links: [
       {
         name: 'calendar',
@@ -821,28 +841,32 @@ export const medicalproBranding = {
 
 export const themeColors = [
   {
-    name: 'blue-theme',
-    color: '#1A97F5',
-  },
-  {
     name: 'green-theme',
-    color: '#03C9D7',
+    color: '#39A900',
   },
   {
-    name: 'purple-theme',
-    color: '#7352FF',
+    name: 'dark-blue',
+    color: '#00324D',
   },
   {
-    name: 'red-theme',
-    color: '#FF5C8E',
+    name: 'light-blue',
+    color: '#82DEF0',
   },
   {
-    name: 'indigo-theme',
-    color: '#1E4DB7',
+    name: 'beige-theme',
+    color: '#FBFBE2',
+  },
+  {
+    name: 'dark-green',
+    color: '#385C57',
   },
   {
     color: '#FB9678',
-    name: 'orange-theme',
+    name: 'brown-theme',
+  },
+  {
+    color: '#FFCE40',
+    name: 'dark-yellow',
   },
 ];
 
@@ -936,8 +960,8 @@ export const customersData = [
   {
     CustomerID: 1002,
 
-    CustomerName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
+    CustomerName: 'Héctor Helí Ruiz G',
+    CustomerEmail: 'hh.rg@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
     CustomerImage:
@@ -946,7 +970,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Location: 'Colombia',
   },
   {
     CustomerID: 1003,
