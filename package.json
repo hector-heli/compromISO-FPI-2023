@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "eslint": "^8.35.0",
     "nodemon": "^2.0.21",
     "postcss": "^8.4.6",
     "react-scripts": "^5.0.1",
