@@ -8,7 +8,7 @@ const { mongoose } = require('./database.js');
 const app = express();
 
 // Settings
-app.set('port', process.env.PORT || 3300);
+app.set('port', process.env.PORT || 3001);
 
 // Middlewares
 app.use(morgan('dev'));
