@@ -3,13 +3,13 @@ import React from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const DataButton = ({ icon, bgColor, color, bgHoverColor, size, text, borderRadius, width }) => {
-  const { setIsClicked, initialState } = useStateContext();
+// const { setIsClicked, initialState } = useStateContext();
 
-  const fetchTasks = () =>{
-    fetch('/api/tasks?q=proxy')
+  const fetchTasks = async() => {
+    await fetch('/api/tasks');
     //fetch('/search?q=proxy')
-    .then( res => res.json)
-    .then( data => {
+    ( res => res.json);
+    ( data => {
       this.setState({ tasks:data});
       console.log(this.state.tasks);
     });
@@ -18,7 +18,7 @@ const DataButton = ({ icon, bgColor, color, bgHoverColor, size, text, borderRadi
   return (
     <button
       type="button"
-      onClick={() => {fetchTasks}}
+      onClick={() => {fetchTasks()}}
       style={{ backgroundColor: bgColor, color, borderRadius }}
       className={` text-${size} p-3 w-${width} hover:drop-shadow-xl hover:bg-${bgHoverColor}`}
     >
