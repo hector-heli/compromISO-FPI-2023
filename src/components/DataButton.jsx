@@ -1,18 +1,14 @@
-import React from 'react';
-
-import { useStateContext } from '../contexts/ContextProvider';
+import React, { useState } from 'react';
 
 const DataButton = ({ icon, bgColor, color, bgHoverColor, size, text, borderRadius, width }) => {
-// const { setIsClicked, initialState } = useStateContext();
 
-  const fetchTasks = async() => {
-    await fetch('/api/tasks');
-    //fetch('/search?q=proxy')
-    ( res => res.json);
-    ( data => {
-      this.setState({ tasks:data});
-      console.log(this.state.tasks);
-    });
+const fetchTasks = async() => {
+  const [ tasks, setTasks ] = useState();
+
+  const dataFetched = fetch('/api/tasks');
+  //fetch('/search?q=proxy')
+  res => res.json;
+  console.log(res);
   }
 
   return (
