@@ -15,17 +15,26 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
-const Ecommerce = () => {
+const Dashboard = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
     <div className="mt-24">
-      <div className="mt-6 ml-4">
+      <div className="flex gap-6 mt-6 ml-4">
         <DataButton
           color="white"
           bgColor={currentColor}
           text="Gestión de Datos"
           borderRadius="10px"
+          downOrUp={true}
+        />
+        <DataButton
+          color="white"
+          bgColor={currentColor}
+          text="Subir Datos"
+          borderRadius="10px"
+          downOrUp={false}
+
         />
       </div>
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
@@ -338,4 +347,4 @@ const Ecommerce = () => {
   );
 };
 
-export default Ecommerce;
+export default Dashboard;

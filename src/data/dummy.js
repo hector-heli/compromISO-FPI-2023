@@ -497,6 +497,10 @@ export const links = [
         name: 'portafolios',
         icon: <FiShoppingBag />,
       },
+      {
+        name: 'GestionDatos',
+        icon: <FiShoppingBag />,
+      },
     ],
   },
 
