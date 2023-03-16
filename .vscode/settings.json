@@ -1,3 +1,5 @@
 {
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "terminal.integrated.tabStopWidth": 4
 }

@@ -11,3 +11,6 @@ If you want to get a finished, highly customizable Material UI version of a simi
 
 Para conexion del servidor:
 https://github.com/FaztWeb/mern-stack-tasks
+
+Basado en el tutorial:
+https://www.youtube.com/watch?v=jx5hdo50a2M&t=603s&ab_channel=JavaScriptMastery 

@@ -14,7 +14,7 @@ const DataButton = ({ downOrUp, icon, bgColor, color, bgHoverColor, size, text, 
     } catch (err) {
       console.log('error', err);
     }
-  } , [tasks])
+  } , [])
 
   const fetchTasks = async () => {
     try{
@@ -40,8 +40,10 @@ const DataButton = ({ downOrUp, icon, bgColor, color, bgHoverColor, size, text, 
           description: 'This a task uploaded from CompromISO App'  })
       });
       
-      const json = await res.json();
-      alert('done', res);
+      const response = await fetch ('/api/tasks')
+      const json = await response.json();
+      alert('done', json);
+      fetchTasks();
     } catch (err) {
       console.log('error', err);
     }
