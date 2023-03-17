@@ -52,7 +52,7 @@ class GestionDatos extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          alert(data);
           //window.M.toast({html: 'Task Saved'});
           this.setState({title: '', description: ''});
           this.fetchTasks();
@@ -101,8 +101,8 @@ class GestionDatos extends Component {
     fetch('/api/tasks')
       .then(res => res.json())
       .then(data => {
-        this.setState({tasks: data});
-        console.log(this.state.tasks);
+        setState({tasks: data});
+        alert(tasks);
       });
   }
 

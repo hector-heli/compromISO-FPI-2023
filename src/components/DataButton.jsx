@@ -4,12 +4,13 @@ import React, { useState, useEffect } from "react";
 const DataButton = ({ downOrUp, icon, bgColor, color, bgHoverColor, size, text, borderRadius, width }) => {
 
   const [tasks, setTasks] = useState([]);
+  let texto;
 
   useEffect (async () => {
     try{
       const res = await fetch ('/api/tasks');
       const json = await res.json();
-      console.log(json);
+      //console.log(json);
       setTasks(json);
     } catch (err) {
       console.log('error', err);
@@ -20,10 +21,10 @@ const DataButton = ({ downOrUp, icon, bgColor, color, bgHoverColor, size, text, 
     try{
       const res = await fetch ('/api/tasks');
       const json = await res.json();
-      console.log(tasks);
       tasks.map((task, index) => {
-        console.log(index, task.title);
+        texto += (index +' '+task.title + '\n')
       })
+      alert(texto);
     } catch (err) {
       console.log('error', err);
     }
