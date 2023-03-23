@@ -15,16 +15,16 @@ router.get('/:id', async(req, res) => {
 });
 
 router.post('/', async(req, res) => {
-    const { title, description } = req.body;
-    const program = new Program({ title, description });
+    const { code, initials, name, lerningResults } = req.body;
+    const program = new Program({ code, initials, name, lerningResults });
     await program.save();
     res.json('program Saved');
 });
 
 router.put('/:id', async(req, res) => {
-    const { title, description } = req.body;
-    const program = { title, description };
-    await Program.findByIdAndUpdate(req.params.id, task);
+    const { code, initials, name, lerningResults } = req.body;
+    const program = { code, initials, name, lerningResults };
+    await Program.findByIdAndUpdate(req.params.id, program);
     res.json('program Updated');
 })
 

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const ProgramSchema = new Schema({
     code: { type: Number, required: true },
-    initial: { type: String, required: true },
+    initials: { type: String, required: true },
     name: { type: String, required: true },
     learningResults: [
       { 
