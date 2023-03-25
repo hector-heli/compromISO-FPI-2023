@@ -8,7 +8,6 @@ import { Dashboard, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
-import CardEntities from './components/CardEntities';
 import Programs from './pages/Programs';
 
 const App = () => {

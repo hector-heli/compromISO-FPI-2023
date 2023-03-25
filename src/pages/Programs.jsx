@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { MdEditDocument } from "react-icons/md";
 
-
-import { customersData, customersGrid } from '../data/dummy';
-import { CardEntities, Button } from '../components'
+import { ProgramEdit, Button } from '../components'
 import { Header } from '../components';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Programs = () => {
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Delete'];
-  const editing = { allowDeleting: true, allowEditing: true };
-
-  // const { currentColor, currentMode } = useStateContext();
-
+  const { currentColor, currentMode } = useStateContext();
   const [programs, setPrograms] = useState([]);
+  const [program, setProgram] = useState([]);
+
   let text;
 
   useEffect (async () => {
@@ -26,34 +23,62 @@ const Programs = () => {
     }
   } , [])
 
-  const fetchPrograms = async () => {
-    try{
-      const res = await fetch ('/api/prorgams');
-      const json = await res.json();
-      programs.map((program, index) => {
-        text += (index +' '+program.title + '\n')
-      })
-      alert(text);
-    } catch (err) {
-      console.log('error', err);
-    }
-  } 
-
-  const addProgram = async () => {
+  const addProgram = async (e) => {
+    e.preventDefault();
+    if(programs._id){
+      const program = await fetch(`/api/programs/${programs._id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          code: program.code,
+          name: program.name,
+          initials: program.initials,
+          learningResults: program.learningResults
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      alert(program);
+    } else {
     try{
       const res = await fetch ('/api/programs',{
         method: 'POST',
         headers: { 
-          'Content-Type': 'application/json' },
+          'Content-Type': 'application/json' 
+        },
         body: JSON.stringify({ 
-          title: 'program from MERN App',
-          description: 'This a program uploaded from CompromISO App'  })
+          code: program.code,
+          name: program.name,
+          initials: program.initials,
+          learningResults: program.learningResults  
+        })
       });
-      
-      const response = await fetch ('/api/programs')
-      const json = await response.json();
-      alert('done', json);
-      fetchPrograms();
+      res => res.json();
+      alert(res.json());
+    } catch (err) {
+      console.log('error', err);
+    }
+    setProgram([]);
+    fetchPrograms();
+    }
+  } 
+
+  const editProgram = async(id) => {
+    res = await fetch(`/api/programs/${id}`);
+    data = res.json();
+    setProgram(data);
+  }
+
+  const fetchPrograms = async () => {
+    try{
+      const res = await fetch ('/api/programs');
+      const json = res.json();
+      setPrograms(json);
+      programs.map((program, index) => {
+        text += (index +' '+program.title + '\n')
+      })
+      alert(text);
     } catch (err) {
       console.log('error', err);
     }
@@ -65,19 +90,23 @@ const Programs = () => {
       <div className="mt-2">
         <Button
           color="white"
-          bgColor="green"
+          bgColor="#39A900"
           text="Nuevo programa"
           borderRadius="10px"
-          width="full"
+          width="50%"
           onClick={addProgram}
+          icon={ MdEditDocument }
         />
       </div>
+      <div>
+        <p> { JSON.stringify(programs) } </p>
         
-      <div >
-
-
-      </div>
-      <CardEntities />
+        {/* programs.map( program => {
+          return (
+            <ProgramEdit />
+          )
+        }) */}
+      </div> 
     </div>
   )
 }

@@ -23,7 +23,7 @@ const DataButton = ({ downOrUp, icon, bgColor, color, bgHoverColor, size, text, 
       const json = await res.json();
       tasks.map((task, index) => {
         texto += (index +' '+task.title + '\n')
-      })
+      });
       alert(texto);
     } catch (err) {
       console.log('error', err);
