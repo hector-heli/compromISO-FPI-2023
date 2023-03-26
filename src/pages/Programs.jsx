@@ -98,14 +98,19 @@ const Programs = () => {
           icon={ MdEditDocument }
         />
       </div>
-      <div>
-        <p> { JSON.stringify(programs) } </p>
-        
-        {/* programs.map( program => {
+      <div>        
+        { programs.map( program => {
           return (
-            <ProgramEdit />
+            <ProgramEdit 
+              id={ program._id }
+              initials={ program.initials }
+              code={ program.code }
+              name={ program.name }
+              learningResults={ program.learningResults }
+              
+            />
           )
-        }) */}
+        }) }
       </div> 
     </div>
   )
